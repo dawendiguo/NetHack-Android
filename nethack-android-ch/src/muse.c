@@ -77,7 +77,7 @@ struct obj *obj;
         struct monst *mtmp;
 
         potion_descr = OBJ_DESCR(objects[obj->otyp]);
-        if (potion_descr && !strcmp(potion_descr, "乳白色")) {
+        if (potion_descr && !strcmp(potion_descr, "milky")) {
             if (!(mvitals[PM_GHOST].mvflags & G_GONE)
                 && !rn2(POTION_OCCUPANT_CHANCE(mvitals[PM_GHOST].born))) {
                 if (!enexto(&cc, mon->mx, mon->my, &mons[PM_GHOST]))

@@ -717,10 +717,10 @@ boolean showlog;
 
     if (objects[otemp.otyp].oc_class == POTION_CLASS && otemp.fromsink)
         /* kludge, meaning it's sink water */
-        Sprintf(qbuf, "称一股%s液体为:",
+        Sprintf(qbuf, "称一股%s 液体为:",
                 OBJ_DESCR(objects[otemp.otyp]));
     else
-        Sprintf(qbuf, "称 %s为:", xname(&otemp));
+        Sprintf(qbuf, "称%s为:", xname(&otemp));
 #ifdef ANDROID
 	if( showlog )
 		and_getlin_log(qbuf, buf);

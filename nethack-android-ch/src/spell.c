@@ -431,7 +431,7 @@ register struct obj *spellbook;
 
     /* attempting to read dull book may make hero fall asleep */
     if (!confused && booktype != SPE_BLANK_PAPER
-        && !strcmp(OBJ_DESCR(objects[booktype]), "枯燥的")) {
+        && !strcmp(OBJ_DESCR(objects[booktype]), "dull")) {
         const char *eyes;
         int dullbook = rnd(25) - ACURR(A_WIS);
 
