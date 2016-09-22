@@ -2474,7 +2474,7 @@ boolean tinitial, tfrom_file;
         sanitize_name(pl_fruit);
         /* OBJ_NAME(objects[SLIME_MOLD]) won't work after initialization */
         if (!*pl_fruit)
-            nmcpy(pl_fruit, "黏液", PL_FSIZ);
+            nmcpy(pl_fruit, "slime mold", PL_FSIZ);
         if (!initial) {
             (void) fruitadd(pl_fruit, forig);
             pline("Fruit is now \"%s\".", pl_fruit);

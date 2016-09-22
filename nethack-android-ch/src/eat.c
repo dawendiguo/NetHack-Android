@@ -119,21 +119,21 @@ static const struct {
     int nut;                              /* nutrition */
     Bitfield(fodder, 1);                  /* stocked by health food shops */
     Bitfield(greasy, 1);                  /* causes slippery fingers */
-} tintxts[] = { { "腐烂的", -50, 0, 0 },  /* ROTTEN_TIN = 0 */
-                { "自制的", 50, 1, 0 }, /* HOMEMADE_TIN = 1 */
-                { "做成汤的", 20, 1, 0 },
-                { "油炸的", 40, 0, 1 },
-                { "腌制的", 40, 1, 0 },
-                { "煮熟的", 50, 1, 0 },
-                { "熏制的", 50, 1, 0 },
-                { "干的", 55, 1, 0 },
-                { "深油炸的", 60, 0, 1 },
-                { "川味", 70, 1, 0 },
-                { "烧烤的", 80, 0, 0 },
-                { "炒的", 80, 0, 1 },
-                { "清炒的", 95, 0, 0 },
-                { "糖制的", 100, 1, 0 },
-                { "浓的", 500, 1, 0 },
+} tintxts[] = { { "rotten", -50, 0, 0 },  /* ROTTEN_TIN = 0 */
+                { "homemade", 50, 1, 0 }, /* HOMEMADE_TIN = 1 */
+                { "soup made from", 20, 1, 0 },
+                { "french fried", 40, 0, 1 },
+                { "pickled", 40, 1, 0 },
+                { "boiled", 50, 1, 0 },
+                { "smoked", 50, 1, 0 },
+                { "dried", 55, 1, 0 },
+                { "deep fried", 60, 0, 1 },
+                { "szechuan", 70, 1, 0 },
+                { "broiled", 80, 0, 0 },
+                { "stir fried", 80, 0, 1 },
+                { "sauteed", 95, 0, 0 },
+                { "candied", 100, 1, 0 },
+                { "pureed", 500, 1, 0 },
                 { "", 0, 0, 0 } };
 #define TTSZ SIZE(tintxts)
 
@@ -1174,25 +1174,25 @@ char *buf;
 
     if (obj && buf) {
         if (r == SPINACH_TIN)
-            Strcat(buf, " 之菠菜");
+            Strcat(buf, " of spinach");
         else if (mnum == NON_PM)
-            Strcpy(buf, "空的罐头");
+            Strcpy(buf, "empty tin");
         else {
             if ((obj->cknown || iflags.override_ID) && obj->spe < 0) {
                 if (r == ROTTEN_TIN || r == HOMEMADE_TIN) {
                     /* put these before the word tin */
-                    Sprintf(buf2, "%s %s 之 ", tintxts[r].txt, buf);
+                    Sprintf(buf2, "%s %s of ", tintxts[r].txt, buf);
                     Strcpy(buf, buf2);
                 } else {
-                    Sprintf(eos(buf), " 之 %s ", tintxts[r].txt);
+                    Sprintf(eos(buf), " of %s ", tintxts[r].txt);
                 }
             } else {
-                Strcpy(eos(buf), " 之 ");
+                Strcpy(eos(buf), " of ");
             }
             if (vegetarian(&mons[mnum]))
                 Sprintf(eos(buf), "%s", mons[mnum].mname);
             else
-                Sprintf(eos(buf), "%s 肉", mons[mnum].mname);
+                Sprintf(eos(buf), "%s meat", mons[mnum].mname);
         }
     }
 }
