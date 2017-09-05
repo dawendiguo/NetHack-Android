@@ -437,10 +437,10 @@ boolean user_typed_name, without_asking;
         /* adjust the input to remove "named " and convert to lower case */
         char *alt = 0; /* alternate description */
 
-        if ((ep = strstri(dbase_str, "  名为 ")) != 0)
-            alt = ep + 9;
-        else if ((ep = strstri(dbase_str, " 被称为 ")) != 0)
-            ep = strstri(dbase_str, " 被称为 ");
+        if ((ep = strstri(dbase_str, " named ")) != 0)
+            alt = ep + 7;
+        else if ((ep = strstri(dbase_str, " called ")) != 0)
+            ep = strstri(dbase_str, " called ");
         else
             ep = strstri(dbase_str, " 叫做 ");
         if (!ep)

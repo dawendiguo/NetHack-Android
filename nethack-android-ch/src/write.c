@@ -150,11 +150,11 @@ register struct obj *pen;
     if (namebuf[0] == '\033' || !namebuf[0])
         return 1;
     nm = namebuf;
-    if (!strncmpi(nm, "卷轴", 6))
-        nm += 6;
-    else if (!strncmpi(nm, "魔法书", 9))
-        nm += 9;
-    if (!strncmpi(nm, "之", 3))
+    if (!strncmpi(nm, "scroll ", 7))
+        nm += 7;
+    else if (!strncmpi(nm, "spellbook ", 10))
+        nm += 10;
+    if (!strncmpi(nm, "of ", 3))
         nm += 3;
 
     if ((bp = strstri(nm, " armour")) != 0) {
