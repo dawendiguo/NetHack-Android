@@ -331,8 +331,8 @@ char *pname; /* caller-supplied output buffer */
                 what = "祭司";
         }
     } else {
-        if (mon->mtame && !strcmpi(what, "天使"))
-            Strcat(pname, "守护 ");
+        if (mon->mtame && !strcmpi(what, "Angel"))
+            Strcat(pname, "guardian ");
     }
 
     Strcat(pname, what);
